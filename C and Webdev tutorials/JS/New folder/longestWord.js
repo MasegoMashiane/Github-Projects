@@ -9,7 +9,7 @@ function longWordIdentify(Sent){
 //Everytime a space is encoumtered slice
 let word = ""
 let Words = []
-    for (i = 0, i <= sent.length, i++){
+    for (i = 0; i <= sent.length; i++){
         word = Sent[i].slice(i, Sent.indexof(" "))
         //Save what was sliced into an array
         Words.push(word)
@@ -17,7 +17,7 @@ let Words = []
     }
 //for each word in an array, check length
     let currentWord = Words[0]
-    for (i=0, i <= Words.length, i++){
+    for (i=0; i <= Words.length; i++){
         
         if
         (currentWord.length === Words[i].length){
@@ -33,6 +33,7 @@ let Words = []
         currentWord = Word[i]
         }
     return currentWord
+}
 }
     
 
