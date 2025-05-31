@@ -1,0 +1,23 @@
+.container{
+    padding: 5px;
+    border: 5px solid rgb(2, 70, 2);
+    height: 350px;
+    width: 550px;
+    
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+}
+.item{
+    font-size: 40px;
+    margin: 2px;
+    padding: 10px;
+    background: linear-gradient( green, rgb(2, 70, 2));
+
+    border: 2px solid black;
+    height: 50px;
+    width: 50px;
+    
+}
+

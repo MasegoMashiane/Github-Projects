@@ -1,0 +1,56 @@
+body{
+    text-align: center;
+    font-family: 'Arial';
+    font-size: xx-large;
+    margin: 0;
+    font-weight: bold;
+}
+h1{
+    text-shadow: 5px 5px 7px black;
+    margin: 0;
+    padding-top: 50px;
+    color: gold;
+}
+#Hero{
+    background: green;
+    height: 650px;
+    color: white;
+}
+#message-El{
+    color: white;
+    font-style: italic;
+}
+
+#Newcard-El{
+    margin-top: 20px;
+
+    font-size: larger;
+    font-weight: bold;
+    color: green;
+
+    background-color: rgb(255, 183, 0);
+
+
+    width: 50%;
+    height: 80px;
+
+    border-radius: 10px;
+    border-right-width: 4.25px;
+    border-bottom-width: 4.25px;
+}
+
+#StartGame{
+    font-size: larger;
+    font-weight: bold;
+    color: green;
+
+    border-radius: 10px;
+    
+    background-color: rgb(255, 183, 0);
+
+    width: 50%;
+    height: 80px;
+
+    border-right-width: 4.25px;
+    border-bottom-width: 4.25px;
+}

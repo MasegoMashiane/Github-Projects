@@ -1,0 +1,77 @@
+body {
+    margin-block: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgb(255, 255, 255);
+}
+.search-input {
+    background: rgb(253, 252, 252);
+    text-align: center;
+    border: 0.5px solid rgba(172, 169, 169, 0.774);
+    border-radius: 100px;
+    border-width: 2px;
+
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    display: block;
+
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    height: 30px;
+    width: 600px;
+}
+.logo-img {
+    margin-bottom: 10px;
+    display:block;
+    width: 600px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.button{
+    display: flex;
+    justify-content: center;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+.search-button {
+    
+    font-weight: 600;
+    font-family: sans-serif ;
+    color: rgba(84, 85, 85, 0.911);
+    border: 0.5px solid rgba(85, 85, 85, 0.774);
+    border-width: 0px;
+    border-radius: 100px;
+    margin-right: 10px;
+    width: 170px;
+    height: 30px;
+}
+
+.Randomize-Button{
+    background: rgb(236, 236, 236);
+    font-weight: 600;
+    font-family: sans-serif ;
+    color: rgba(84, 85, 85, 0.911);
+    border: 0.05px solid rgba(85, 85, 85, 0.774);
+    border-width: 0px;
+    border-radius: 100px;
+    margin-left: 10px;
+    width: 170px;
+    height: 30px;
+}
+.text{
+    text-align: center;
+    font-family: sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    padding-left: 0.5px;
+    padding-top: 5px;
+}

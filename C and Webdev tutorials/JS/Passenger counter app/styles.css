@@ -1,0 +1,102 @@
+body{
+    text-align: center;
+    margin: 0;
+    font-family: 'Calibri';
+}
+#hero{
+    background-image: url("https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3VqZ3F6ZXVtNTR4eWJxZWV4anRzYjNoamMwMXg2eno2Y2I3bXl0ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1Ahg7KwAI7EXqnvDLT/giphy.gif");
+    background-size: cover;
+    height: 670px;
+}
+#title{
+    margin: 0;
+
+    font-size: 50px;
+
+    padding-top: 30px;
+
+    opacity: 0.5;
+    color: rgb(37, 37, 37);
+}
+
+#counter{
+    font-size: 40px;
+    opacity: 0.5;
+    color: rgb(37, 37, 37);
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.btnE{
+    margin: 5px;
+    border: 1px solid black;
+    width: 600px;
+    height: 50px;
+
+    font-size: 25px;
+    background: linear-gradient(rgb(73, 121, 184), rgb(115, 140, 179));
+}
+.rstE{
+    margin: 5px;
+    border: 1px solid black;
+    width: 600px;
+    height: 50px;
+
+    font-size: 25px;
+    background: linear-gradient(rgb(156, 85, 85), rgb(221, 144, 144));
+}
+
+.btnS{
+    margin: 5px;
+    border: 1px solid black;
+    width: 600px;
+    height: 50px;
+
+    font-size: 25px;
+    background: linear-gradient(rgb(73, 121, 184), rgb(115, 140, 179));
+}
+
+
+ .btnE:hover:hover{
+    height: 55px;
+    width: 610px;
+
+    background: linear-gradient(rgb(41, 100, 177), rgb(74, 90, 116));
+    box-shadow: 0px 0px 10px black ;
+
+    opacity: 0.6;
+ }
+
+ .btnS:hover{
+    height: 55px;
+    width: 610px;
+
+    background: linear-gradient(rgb(41, 100, 177), rgb(74, 90, 116));
+    box-shadow: 0px 0px 10px black ;
+
+    opacity: 0.6;
+ }
+
+.rstE:hover{
+    margin: 5px;
+    border: 1px solid black;
+    width: 600px;
+    height: 50px;
+
+    font-size: 25px;
+    background: linear-gradient(rgb(141, 48, 48), rgb(231, 43, 43));
+
+    opacity: 0.5;
+}
+
+.saves{
+    display: flex;
+    font-size: xx-large;
+    opacity: 0.7;
+}

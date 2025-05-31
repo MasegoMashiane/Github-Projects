@@ -1,0 +1,62 @@
+body {
+    color: aliceblue;
+    text-align: center;
+    font-family: "Orbitron", serif;
+    margin: 0;
+}
+#Hero{
+    background-image: url("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjR5ZDRjeTVjYnAwbzBrdjk2OW1kYmZlYWdtdW1vd3RhanF5MzFneSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Av0A5bNvrS8MBtBcIg/giphy.gif");
+    background-size: cover;
+    padding: 20px 0px 35px 0px;
+    height: 280px;
+}
+#Terms{
+    margin-top: 35px;
+    color: rgb(67, 67, 146);
+    opacity: 0.75;
+    margin-bottom: 10px
+;
+}
+#hd{
+    text-shadow: 0px 2px 10px black;
+    opacity: 0.5;
+    font-size: 50px;
+    margin: 5px 0px 0px 20px;
+}
+img{
+    height: 50px;
+    width: 150px;
+}
+#mainlogo{
+    margin: 0px auto;
+    height: 50px;
+    width: 70px;
+}
+#Apply{
+    opacity: 0.5;
+    font-size: larger;
+    font-weight: lighter;
+    background: rgb(165, 94, 27);
+    border: 2px solid black;
+    width: 90px;
+    height: 50px;
+    margin-top: 25px;
+    font-family: "Orbitron", serif;
+    padding: 1px;
+}
+
+#FAQ{
+    opacity: 0.5;
+    font-size: larger;
+    font-weight: lighter;
+    background: rgb(165, 94, 27);
+    border: 2px solid black;
+    width: 90px;
+    height: 50px;
+    margin-top: 25px;
+    font-family: "Orbitron", serif;
+    padding: 1px;
+}
+.cta{
+    border-bottom: 5px solid white;
+}
