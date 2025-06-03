@@ -1,39 +1,33 @@
-let array = [2,2,3,4,4,5]
+let array = [2,2,3,4,4,4,4,5,6,6]
 let Array2 = []
-let counter = array.length
+let p = 0
+
 function removeDuplicate(){
 //For loop which will repeat n number of times
 //n being equivalent to the length of the array
+    Array2.push(array.shift())
+    check()
+    return array
+}
 
-    for(let i=0; array.length; i++){
-        Array2.push(array.shift())
 
-    counter --
+function check(){
     
-        if (array[i] === Array2){
-            array[i].pop
+    for(let i = 0; array.length; i++){
+
+        if (array[i] === Array2[0]){
+            array.splice(array[i], 1)
             Array2 = []
-            repeat()
-        }
 
+            console.log(`
+            Array: ${array}
+            Array2: ${Array2}`)
+        }
         else{
-            return counter
+        return array
         }
     }
 }
-
-
-function repeat(){
-    //check if array is empty first before repeating the remove... function
-    if (counter > 0){
-        removeDuplicate()
-    }
-
-    else{
-        return array
-    }
-}
-
 
 let x = removeDuplicate()
 console.log(x)
