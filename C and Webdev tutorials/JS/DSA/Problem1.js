@@ -8,10 +8,13 @@ function FindStudentName(allstudents, studentname){
 Index = allstudents.indexOf(studentname) 
 
 if (Index === -1)
-{return false}
-else{
+{
+    return false
+}
+
+else
+{
     return true
 }
 }
-
 console.log(FindStudentName(allstudents, `true`))
