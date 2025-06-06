@@ -24,6 +24,21 @@ canvas{
     width: 760px;
     background: white;
 }
+.tab{
+    height: 70px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+
+    text-align: center;
+    font-size: x-large;
+    color: rgb(156, 156, 156);
+}
+.texts{
+    margin-top: 3%;
+}
+.tab:hover{
+    background: rgb(61, 60, 60);
+}
 #Form{
     border-radius: 10px;
     padding: 20px;
@@ -56,6 +71,8 @@ h2{
     color: white;
     mix-blend-mode: difference;
     font-family:'Courier New', Courier, monospace;
+
+    margin-bottom: 50px;
 }
 h1{ 
     font-family:'Courier New', Courier, monospace;
