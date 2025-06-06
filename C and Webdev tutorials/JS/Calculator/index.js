@@ -171,6 +171,22 @@ function FV(){
     }}*/
    DisplayError.textContent = "Button under construction"
 }
+function i(){
+    DisplayError.textContent = "Button under construction"
+}
+function time(){
+    DisplayError.textContent = "Button under construction"
+}
+function PV(){
+    DisplayError.textContent = "Button under construction"
+}
+function N(){
+    DisplayError.textContent = "Button under construction"
+}
+function P(){
+    DisplayError.textContent = "Button under construction"
+}
+
 
 //Assigning Functions to operation buttons 
 function Operat(Op){
