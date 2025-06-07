@@ -1,6 +1,18 @@
-function toggleSlide() {
+function toggleSlide(){
     document.getElementById("HiddenButtons").classList.toggle("slide-out");
 }
+
+function toggleSlideDown1(){
+    document.getElementsByClassName("Formulars")[0].classList.toggle("active1");
+}
+function toggleSlideDown2(){
+    document.getElementById("Form").classList.toggle("active2");
+}
+function toggleSlideDown(){
+    toggleSlideDown1()
+    toggleSlideDown2()
+}
+
 
 const Display = document.getElementById("Display")
 const DisplayError = document.getElementById("ErrorText")

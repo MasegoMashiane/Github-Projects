@@ -2,8 +2,8 @@ body{
     background: linear-gradient(rgb(105, 98, 98), rgb(79, 77, 77));
     max-height: 1250px;
     height: 1250px;
-    width: 1600px;
-    max-width: 1600px;
+    width: 700px;
+    max-width: 700px;
 }
 #Calculator{
     display: flex;
@@ -16,14 +16,34 @@ canvas{
     height: 30rem;
     background-color: aliceblue;
 }
+
+
 .Formulars{
     border-radius: 12px;
     box-shadow: 15px -15px 20px black;
     margin-left: 130px;
-    height: 1070px;
-    width: 760px;
+    height: 90px;
+    width: 430px;
     background: white;
 }
+.Formulars.active1{
+    height: 1070px;
+    transition-duration: 4s;
+}
+#Form{
+    border-radius: 10px;
+    padding: 20px;
+    background: rgb(69, 67, 67);
+    height: 46px;
+    width: 380px;
+    margin: 2px;
+    overflow: hidden;
+}
+#Form.active2{
+    height: 1026px;
+    transition-duration: 4s;
+}
+
 .tab{
     height: 70px;
     border: 1px solid black;
@@ -39,14 +59,7 @@ canvas{
 .tab:hover{
     background: rgb(61, 60, 60);
 }
-#Form{
-    border-radius: 10px;
-    padding: 20px;
-    background: rgb(69, 67, 67);
-    height: 1026px;
-    width: 700px;
-    margin: 2px;
-}
+
 .frame{   
     position:sticky;
     right: 90%;
@@ -198,9 +211,15 @@ button:hover{
         color: rgba(230, 154, 13, 0.509);
     } 
 }
+
 #HiddenButtons{
     transition: transform 4s ease-in-out;
 }
 .slide-out{
     transform: translateX(360px);
+}
+
+#Explanations:hover{
+    cursor: pointer;
+    opacity: 0.5;
 }
