@@ -23,7 +23,7 @@ body {
   }
   
   .petal {
-    background-image: url('https://i.imgur.com/4YzeM3c.png');
+    background-image: url('');
   }
   
   .popping {
@@ -37,7 +37,7 @@ body {
   }
   
   .butterfly {
-    background-image: url('https://i.imgur.com/WPbKVmA.png');
+    background-image: url('');
     animation: flutter 2s ease-in-out infinite alternate;
   }
   
