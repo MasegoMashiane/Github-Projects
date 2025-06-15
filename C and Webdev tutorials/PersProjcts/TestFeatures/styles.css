@@ -1,47 +1,66 @@
-body {
-    margin: 0;
-    background: linear-gradient(to bottom, #7c2dd6, #865454);
-    height: 100vh;
-    overflow: hidden;
-  }
+body{
+  margin: 0;
+  background: linear-gradient(to bottom, #7c2dd6, #865454);
+  height: 100vh;
+  overflow: hidden;
+}
   
-  .garden {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
+.garden {
+  position: sticky;
+  width: 100%;
+  height: 100%;
+}
   
-  .petal.butterfly {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    cursor: pointer;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: transform 0.3s ease-out;
-  }
+.petal.butterfly {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /*background-position: center;*/
+  transition: transform 0.3s ease-out;
+}
   
-  .petal {
-    background-image: url('');
-  }
+.petal {
+  width: 5.5%;
+  height: 15%;
+  background: radial-gradient(circle at 70% 30%, pink, red);
+  border-radius: 50% 50% 25% 90%;
+  /*transform: rotate(-45deg);*/
+  margin: 50px auto;
+}
+
+#petal1{
+  transform: translate(50px, 20px);
+  transform: rotate(0deg);
+}
+#petal2{
+  transform: translate(8px, 0);
+  transform: rotate(-90deg);
+}
   
-  .popping {
-    animation: pop 0.3s ease-out forwards;
-  }
+.popping {
+  animation: pop 0.3s ease-out forwards;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(3); }
+  100% { transform: scale(0); }
+}
   
-  @keyframes pop {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.8); }
-    100% { transform: scale(0); }
-  }
+.butterfly {
+  width: 25px;
+  height: 100px;
+  background: radial-gradient(circle, pink, red);
+  border-radius: 50% 50% 50% 50%;
+  position:absolute;
+  top: 50px;
+  animation: flutter 2s ease-in-out infinite alternate;
+}
   
-  .butterfly {
-    background-image: url('');
-    animation: flutter 2s ease-in-out infinite alternate;
-  }
-  
-  @keyframes flutter {
-    0% { transform: translateY(0px) rotate(-5deg); }
-    100% { transform: translateY(-10px) rotate(5deg); }
-  }
+@keyframes flutter {
+  0% { transform: translateY(0px) rotate(-5deg); }
+  100% { transform: translateY(-10px) rotate(5deg); }
+}

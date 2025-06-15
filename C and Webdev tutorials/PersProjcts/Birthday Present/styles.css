@@ -240,18 +240,21 @@ body{
 }
 
 .flower__fall-down--yellow{
-    animation: flower-fall-down-yellow  8s 1.2s linear forwards;
+    animation: flower-fall-down-yellow  10s 5s ease-out forwards;
+}
+.flower__fall-down--yellow:hover{
+    opacity: 0.75;
+    cursor: pointer;
 }
 
 .flower__fall-down--pink{
-    animation: flower-fall-down-pink  5s 1.2s linear forwards;
+    animation: flower-fall-down-pink  10s 1.2s linear forwards;
 }
 
 .flower__fall-down--purple{
     bottom: 4vmin;
-    animation:flower-fall-down-purple  6s 1.2s linear forwards, flower-falling 6s 7.2s linear infinite;
+    animation:flower-fall-down-purple  10s 1.2s linear forwards, flower-falling 6s 7.2s linear infinite;
 }
-
 
 @keyframes open-flower{
         0%{
@@ -285,19 +288,58 @@ body{
 @keyframes flower-fall-down-yellow {
 
     0%{
+        box-shadow: 0 0 5px #e9c3b8,
+                    0 0 10px #f7ae9a,
+                    0 0 20px #e9c3b8,
+                    0 0 30px #f5957b;
+        background: radial-gradient(#f06c48, #df8a73);
         transform: rotate(-55deg);
     }
 
     50%{
+        box-shadow: 0 0 10x #e97c5e,
+                    0 0 15x #db6545,
+                    0 0 25x #e9603a,
+                    0 0 35x #f5592e;
+        background:radial-gradient(#be5639, #f14d1f);
         bottom: 3vmin;
         transform: rotateX(-100deg);
     }
 
     100%{
-        transform:translate(2vmin,70vmin) rotate(150deg);
+        box-shadow: 0 0 40px #fd4626,
+                    0 0 45px #fc4120,
+                    0 0 50px #ff3b18,
+                    0 0 55px #ff2600;
+        background: #b35d46;
+        transform:translate(2vmin,55vmin) rotate(150deg);
     }
 
 }
+.popping {
+    animation: pop 0.3s ease-out forwards;
+}
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(3); }
+    100% { transform: scale(0); }
+}
+
+.butterfly {
+    width: 25px;
+    height: 100px;
+    background: radial-gradient(circle, #f06c48, #df8a73);
+    border-radius: 50% 50% 50% 50%;
+    position:absolute;
+    top: 50px;
+    animation: flutter 2s ease-in-out infinite alternate;
+}
+    
+@keyframes flutter {
+    0% { transform: translateY(0px) rotate(-5deg); }
+    100% { transform: translateY(-10px) rotate(5deg); }
+}
+
 
 @keyframes flower-fall-down-purple {
 
