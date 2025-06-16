@@ -326,12 +326,7 @@ body{
 }
 
 .butterfly {
-    width: 25px;
-    height: 100px;
-    background: radial-gradient(circle, #f06c48, #df8a73);
-    border-radius: 50% 50% 50% 50%;
-    position:absolute;
-    top: 50px;
+    background-image: url('');
     animation: flutter 2s ease-in-out infinite alternate;
 }
     

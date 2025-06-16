@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Catch the Cake 🎂</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
+    }
+    #game {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+    #basket {
+      width: 100px;
+      height: 60px;
+      background: brown;
+      position: absolute;
+      bottom: 20px;
+      border-radius: 20px;
+    }
+    .cake {
+      width: 40px;
+      height: 40px;
+      background: url('https://emojicdn.elk.sh/🧁') no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    #score {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 24px;
+      background: white;
+      padding: 8px 12px;
+      border-radius: 10px;
+    }
+
+    #comments{
+        font-size: large;
+        font-family: 'Comic Sans MS', cursive;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="game">
+    <div id="comments"></div>
+    <div id="basket"></div>
+    <div id="score">🎂 Cakes: 0</div>
+  </div>
+
+  <script>
+    const game = document.getElementById('game');
+    const basket = document.getElementById('basket');
+    const scoreBoard = document.getElementById('score');
+    let comments = document.getElementById('comments')
+    let score = 0;
+
+    // Move basket with mouse
+    game.addEventListener('mousemove', (e) => {
+      const x = e.clientX - basket.offsetWidth / 2;
+      basket.style.left = `${x}px`;
+    });
+
+    // Create cakes
+    function createCake() {
+      const cake = document.createElement('div');
+      cake.classList.add('cake');
+      cake.style.left = Math.random() * (window.innerWidth - 40) + 'px';
+      cake.style.top = '0px';
+      game.appendChild(cake);
+
+      let fallInterval = setInterval(() => {
+        const cakeTop = parseInt(cake.style.top);
+        cake.style.top = cakeTop + 5 + 'px';
+
+        const cakeRect = cake.getBoundingClientRect();
+        const basketRect = basket.getBoundingClientRect();
+
+        if (
+          cakeRect.bottom >= basketRect.top &&
+          cakeRect.left < basketRect.right &&
+          cakeRect.right > basketRect.left
+        ) {
+          score++;
+          game.removeChild(cake);
+          clearInterval(fallInterval);
+          scoreBoard.textContent = `🧁Cakes: ${score}`;
+
+          if (score === 25) {
+            setTimeout(() => {
+              alert("🎉 Careful now... that's one more cake away from jeans no longer fitting. Anyways, Enjoy your day, Cupcakes🧁...P.S. I Couldn't find a honeybun emoji, had to improvise");
+              document.body.style.background = 'hotpink';
+              scoreBoard.textContent = "🍰 Cake Queen 👑";
+            }, 200);
+          }
+        }
+
+        if (cakeTop > window.innerHeight) {
+          game.removeChild(cake);
+          clearInterval(fallInterval);
+          if (score < 25) {
+            const messages = [
+              "You dropped my cousin! 😤",
+              "CAKE down! 🍰💀",
+              "oooh! missed! BUT HEY,Abs say thanks",
+              "Oops! There goes dessert 😅",
+              "Gravity's winning today.",
+              "Another one bites the frosting."
+            ];
+            
+            comments.textContent = (messages[Math.floor(Math.random() * messages.length)]);
+          }
+        }
+      }, 30);
+    }
+
+    // Drop a cake every 1.2 seconds
+    setInterval(createCake, 1200);
+  </script>
+</body>
+</html>
