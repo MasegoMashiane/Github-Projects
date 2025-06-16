@@ -1,4 +1,5 @@
 const petal = document.getElementsByClassName('flower__fall-down--yellow')
+const audio = document.getElementById('Audio')
 let ClickedCounter = 0
 
 function pop(){
@@ -8,6 +9,7 @@ function pop(){
     }
     else{
     petal[0].classList.toggle('popping');
+    audio.play()
     setTimeout(() => {
         petal[0].classList.remove('flower-fall-down-yellow', 'popping');
         petal[0].classList.toggle('butterfly');

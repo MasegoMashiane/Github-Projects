@@ -8,17 +8,67 @@
       margin: 0;
       overflow: hidden;
       font-family: 'Comic Sans MS', cursive;
-      background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
+      background: linear-gradient(to top, #d357a1 0%, #02b497 100%);
+      overflow: hidden;
+      position: relative;
+      height: 100vh;
     }
+    .rainbow {
+      position: absolute;
+      bottom: 32vh;
+      left: 50vw;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transform: translateX(-50%);
+      width: 1500px;
+      height: 420px;
+      z-index: -3;
+    }
+    .castle {
+      position: absolute;
+      bottom: 0;
+      left: 50vw;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transform: translateX(-50%);
+      width: 450px;
+      height: 450px;
+      z-index: -1;
+    }
+    
+    .Foreground{
+      position: absolute;
+      bottom: 0;
+      left: 50vw;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transform: translateX(-50%);
+      width: 1500px;
+      height: 450px;
+      z-index: -2;
+    }
+    
+
+    .sun {
+      position: absolute;
+      top: 1vh;
+      right: 1vw;
+      width: 200px;
+      height: 200px;
+      background: gold;
+      border-radius: 50%;
+      box-shadow: 0 0 30px yellow;
+      z-index: -3;
+    }
+
     #game {
       position: relative;
       width: 100vw;
       height: 100vh;
     }
     #basket {
-      width: 100px;
-      height: 60px;
-      background: brown;
+      width: 130px;
+      height: 100px;
       position: absolute;
       bottom: 20px;
       border-radius: 20px;
@@ -48,17 +98,37 @@
   </style>
 </head>
 <body>
+  <audio autoplay="autoplay" height="100" width="100" id="myAudio" loop>
+    <source src="MIKA - Grace Kelly.mp3" type="audio/mp3" />
+    <embed height="100" width="100" src="MIKA - Grace Kelly.mp3" />
+  </audio>
+  <div class="sun"></div>
+  <img src="Rainbow.png" class="rainbow" alt="rainbow">
+  <img src="foreground.png" class="Foreground" alt="Foreground">
+  <img src="Castle.png" class="castle" alt="Princess Castle"/>
   <div id="game">
     <div id="comments"></div>
-    <div id="basket"></div>
+    <div id="errorMessage"></div>
+    <img src="basket.png" id="basket" alt="basket"/>
     <div id="score">🎂 Cakes: 0</div>
   </div>
-
+  <script>
+    const errormessage = document.getElementById('errorMessage');
+    function playAudio() {
+      var audio = document.getElementById("myAudio");
+      audio.play().catch((e) => {
+      errormessage.textContent = `playback failed: ${e}
+                                  Click on the page to enable music`
+    }
+    );
+  }  
+    
+  </script>
   <script>
     const game = document.getElementById('game');
     const basket = document.getElementById('basket');
     const scoreBoard = document.getElementById('score');
-    let comments = document.getElementById('comments')
+    let comments = document.getElementById('comments');
     let score = 0;
 
     // Move basket with mouse
@@ -94,9 +164,10 @@
 
           if (score === 25) {
             setTimeout(() => {
-              alert("🎉 Careful now... that's one more cake away from jeans no longer fitting. Anyways, Enjoy your day, Cupcakes🧁...P.S. I Couldn't find a honeybun emoji, had to improvise");
-              document.body.style.background = 'hotpink';
-              scoreBoard.textContent = "🍰 Cake Queen 👑";
+              document.body.innerHTML = `<div style="height: 100vh; background: linear-gradient(to top, #ff8fd8, #fff1f9); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; font-family: 'Comic Sans MS', cursive;">
+              <h1 style="font-size: 3rem;">👑 Cake Queen Crowned! 👑</h1>
+              <p style="font-size: 1.5rem; max-width: 600px;">🎉 Careful now... that's one more cake away from jeans no longer fitting! 😜<br><br>Enjoy your day, Cupcakes 🧁<br><br><em>P.S. I couldn't find a honeybun emoji, had to improvise.</em></p>
+              <button onclick="location.reload()" style="margin-top: 20px; padding: 10px 20px; font-size: 1rem; border-radius: 10px; background: hotpink; color: white; border: none;">Play Again</button></div>`
             }, 200);
           }
         }
