@@ -122,7 +122,7 @@
     <img src="basket.png" id="basket" alt="basket"/>
     <div id="ComScoreContainer">
       <div id="score">🎂 Cakes: 0</div>
-      <div id="comments">Right click your mouse to start game</div>
+      <div id="comments">Left click your mouse to start game</div>
     </div>
   </div>
   <script>
@@ -154,7 +154,7 @@
     game.addEventListener('click', (e) =>{
       console.log("clicked")
       playAudio();
-      setInterval(createCake, 1200);
+      setInterval(createCake, 800);
     });
     // Create cakes
     function createCake() {
@@ -180,6 +180,16 @@
           game.removeChild(cake);
           clearInterval(fallInterval);
           scoreBoard.textContent = `🧁Cakes: ${score}`;
+          
+          const catchMessages = ["That cupcake didn't stand a chance", 
+                                "Another one? Your future jeans are sweating😬",
+                                "Girl, your hips just signed up for cupcake duty", 
+                                "Sugar called... It wants a permanent place on your figure",
+                                "Mmmm... delicious. Regret in 3...2...1 🍰"
+                              ]
+          comments.textContent = catchMessages[Math.floor(Math.random()*catchMessages.length)]
+
+
 
           if (score === 25){
             setTimeout(() => {
@@ -204,7 +214,6 @@
               "Gravity's winning today.",
               "Another one bites the frosting."
             ];
-            
             comments.textContent = (messages[Math.floor(Math.random() * messages.length)]);
           }
         }
