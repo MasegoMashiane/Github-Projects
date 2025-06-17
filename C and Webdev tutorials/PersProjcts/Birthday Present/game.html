@@ -34,8 +34,7 @@
       width: 450px;
       height: 450px;
       z-index: -1;
-    }
-    
+    }  
     .Foreground{
       position: absolute;
       bottom: 0;
@@ -47,8 +46,6 @@
       height: 450px;
       z-index: -2;
     }
-    
-
     .sun {
       position: absolute;
       top: 1vh;
@@ -60,7 +57,6 @@
       box-shadow: 0 0 30px yellow;
       z-index: -3;
     }
-
     #game {
       position: relative;
       width: 100vw;
@@ -80,20 +76,36 @@
       background-size: contain;
       position: absolute;
     }
+    #ComScoreContainer{
+      display: flex;
+      gap: 10rem;
+    }
     #score {
-      position: absolute;
-      top: 10px;
-      left: 10px;
+      margin-top: 1vh;
+      margin-left: 1px;
       font-size: 24px;
+      color: rgb(97, 97, 196);
       background: white;
       padding: 8px 12px;
+      max-height: 99px;
       border-radius: 10px;
+      opacity: 0.75;
     }
-
     #comments{
+        position: relative;
+        color: rgb(97, 97, 196);
+        padding: 8px 12px;
+        border-radius: 10px;
+        margin-right: 10rem;
+        max-height: 105.375px;
+        min-width: 93.281px;
+        left: 10vw;
+        top: 1vh;
         font-size: large;
         font-family: 'Comic Sans MS', cursive;
         text-align: center;
+        height: auto;
+        width: auto;
     }
   </style>
 </head>
@@ -107,18 +119,20 @@
   <img src="foreground.png" class="Foreground" alt="Foreground">
   <img src="Castle.png" class="castle" alt="Princess Castle"/>
   <div id="game">
-    <div id="comments"></div>
-    <div id="errorMessage"></div>
     <img src="basket.png" id="basket" alt="basket"/>
-    <div id="score">🎂 Cakes: 0</div>
+    <div id="ComScoreContainer">
+      <div id="score">🎂 Cakes: 0</div>
+      <div id="comments">Right click your mouse to start game</div>
+    </div>
   </div>
   <script>
+
     const errormessage = document.getElementById('errorMessage');
+    
     function playAudio() {
       var audio = document.getElementById("myAudio");
       audio.play().catch((e) => {
-      errormessage.textContent = `playback failed: ${e}
-                                  Click on the page to enable music`
+      console.log(`playback failed: ${e}`)
     }
     );
   }  
@@ -137,6 +151,11 @@
       basket.style.left = `${x}px`;
     });
 
+    game.addEventListener('click', (e) =>{
+      console.log("clicked")
+      playAudio();
+      setInterval(createCake, 1200);
+    });
     // Create cakes
     function createCake() {
       const cake = document.createElement('div');
@@ -152,22 +171,23 @@
         const cakeRect = cake.getBoundingClientRect();
         const basketRect = basket.getBoundingClientRect();
 
-        if (
-          cakeRect.bottom >= basketRect.top &&
-          cakeRect.left < basketRect.right &&
-          cakeRect.right > basketRect.left
-        ) {
+        if 
+        (
+          cakeRect.bottom >= basketRect.top && cakeRect.left < basketRect.right && cakeRect.right > basketRect.left
+        ) 
+        {
           score++;
           game.removeChild(cake);
           clearInterval(fallInterval);
           scoreBoard.textContent = `🧁Cakes: ${score}`;
 
-          if (score === 25) {
+          if (score === 25){
             setTimeout(() => {
               document.body.innerHTML = `<div style="height: 100vh; background: linear-gradient(to top, #ff8fd8, #fff1f9); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; font-family: 'Comic Sans MS', cursive;">
               <h1 style="font-size: 3rem;">👑 Cupcake Princess Crowned! 👑</h1>
               <p style="font-size: 1.5rem; max-width: 600px;">🎉 Careful now... that's one more cake away from jeans no longer fitting! 😜<br><br>Enjoy your day, Cupcakes 🧁<br><br><em>P.S. I couldn't find a honeybun emoji, had to improvise.</em></p>
               <button onclick="location.reload()" style="margin-top: 20px; padding: 10px 20px; font-size: 1rem; border-radius: 10px; background: hotpink; color: white; border: none;">Play Again</button></div>`
+              launchConfetti()
             }, 200);
           }
         }
@@ -191,8 +211,31 @@
       }, 30);
     }
 
-    // Drop a cake every 1.2 seconds
-    setInterval(createCake, 1200);
+    // Confetti Launcher
+    function launchConfetti(){
+      for(let i = 0; i < 100; i++){
+        let Confetti = document.createElement('div');
+        Confetti.style.position = `fixed`;
+        Confetti.style.width = `10px`;
+        Confetti.style.height = `10px`;
+        Confetti.style.background = `hsl(${Math.random()*360}, 100%, 70%)`;
+        Confetti.style.top = `-10px`;
+        Confetti.style.left = Math.random()*100 +'vw'
+        Confetti.style.animation = `fall ${2 + Math.random()*3}s linear forwards`;
+        Confetti.style.transform = `rotate(${Math.random()*360}deg)`;
+        Confetti.style.zIndex = 30;
+        document.body.appendChild(Confetti);
+      }
+
+      const style = document.createElement('style');
+      style.textContent = `@keyframes 
+      fall{
+        to {
+      transform: translateY(100vh) rotate(720deg);
+      }
+      }`;
+      document.head.appendChild(style);
+    }
   </script>
 </body>
 </html>
