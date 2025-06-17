@@ -115,9 +115,9 @@
     <embed height="100" width="100" src="MIKA - Grace Kelly.mp3" />
   </audio>
   <div class="sun"></div>
-  <img src="Rainbow.png" class="rainbow" alt="rainbow">
-  <img src="foreground.png" class="Foreground" alt="Foreground">
-  <img src="Castle.png" class="castle" alt="Princess Castle"/>
+  <img src="Rainbow-min.png" class="rainbow" alt="rainbow">
+  <img src="foreground-min.png" class="Foreground" alt="Foreground">
+  <img src="Castle-min.png" class="castle" alt="Princess Castle"/>
   <div id="game">
     <img src="basket.png" id="basket" alt="basket"/>
     <div id="ComScoreContainer">
@@ -154,7 +154,7 @@
     game.addEventListener('click', (e) =>{
       console.log("clicked")
       playAudio();
-      setInterval(createCake, 800);
+      setInterval(createCake, 1200);
     });
     // Create cakes
     function createCake() {
@@ -196,6 +196,7 @@
               document.body.innerHTML = `<div style="height: 100vh; background: linear-gradient(to top, #ff8fd8, #fff1f9); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; font-family: 'Comic Sans MS', cursive;">
               <h1 style="font-size: 3rem;">👑 Cupcake Princess Crowned! 👑</h1>
               <p style="font-size: 1.5rem; max-width: 600px;">🎉 Careful now... that's one more cake away from jeans no longer fitting! 😜<br><br>Enjoy your day, Cupcakes 🧁<br><br><em>P.S. I couldn't find a honeybun emoji, had to improvise.</em></p>
+              <a href ='index1.html' style="font-size: 1.5rem; max-width: 600px;"> Oh and since you like plants so much... here's a little something something</a>
               <button onclick="location.reload()" style="margin-top: 20px; padding: 10px 20px; font-size: 1rem; border-radius: 10px; background: hotpink; color: white; border: none;">Play Again</button></div>`
               launchConfetti()
             }, 200);
