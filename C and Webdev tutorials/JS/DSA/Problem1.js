@@ -5,16 +5,16 @@
 let allstudents = ['Paul', 'Parker', 'Palesa', 'Pat', 'Prudence']
 
 function FindStudentName(allstudents, studentname){
-Index = allstudents.indexOf(studentname) 
-
-if (Index === -1)
-{
-    return false
+ for (let i = 0; i < allstudents.length; i++){
+    if (allstudents[i] === studentname ){
+        return allstudents[i]
+    }
+    else{
+        return "Name not found"
+    }
+ }
 }
 
-else
-{
-    return true
-}
-}
-console.log(FindStudentName(allstudents, `true`))
+console.log(FindStudentName(allstudents, "Paul"))
+
+//linear search algorithm
