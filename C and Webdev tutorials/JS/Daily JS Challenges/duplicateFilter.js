@@ -1,33 +1,58 @@
-let array = [2,2,3,4,4,4,4,5,6,6]
-let Array2 = []
-let p = 0
+let array = ["a","a","b","a"]
+const lenOfOrigArray = array.length
+let array2 = []
+let array3 = []
+let counter = 0
+//find all the duplicates in the array and then remove them
 
-function removeDuplicate(){
+
+
+function repeat(){
 //For loop which will repeat n number of times
 //n being equivalent to the length of the array
-    Array2.push(array.shift())
-    check()
-    return array
+    
+    console.log(lenOfOrigArray)
+
+    if (counter <= lenOfOrigArray){
+        console.log(`array: ${array3}`)
+    } 
+    
+    array2 = []
+    console.log(`array2 must be empty: ${array2} 
+                State of array: ${array}    
+                round:${counter}`)
+    checkForDuplicates()
+    
 }
 
 
-function check(){
-    
-    for(let i = 0; array.length; i++){
+function checkForDuplicates(){
+    counter++
 
-        if (array[i] === Array2[0]){
-            array.splice(array[i], 1)
-            Array2 = []
+    array2.push(array.shift())
 
-            console.log(`
-            Array: ${array}
-            Array2: ${Array2}`)
+    if (counter === 1){
+        array3[0] = array2[0]
+    }
+    console.log(`Array2 must have someting: ${array2} 
+                 State of array: ${array}                 
+                round:${counter}`)
+
+
+    for(let i = 0; i < array.length; i++){
+        
+        if (array[i] === array2[0]){
+            console.log('if enclosure')
+            repeat()
         }
-        else{
-        return array
+
+        else if(array2[0] != array[i] ){
+            console.log('else if enclosure')
+            array3.push(array[i])
+            repeat()
         }
     }
 }
 
-let x = removeDuplicate()
-console.log(x)
+
+checkForDuplicates()
