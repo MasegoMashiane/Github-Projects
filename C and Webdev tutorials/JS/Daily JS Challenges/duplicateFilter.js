@@ -1,4 +1,4 @@
-let array = [2,2,3,4,4,4,4,5,6,6]
+let array = ["a","a","b","a"]
 const lenOfOrigArray = array.length
 let array2 = []
 let array3 = []
@@ -24,6 +24,7 @@ function repeat(){
     checkForDuplicates()
     
 }
+
 
 function checkForDuplicates(){
     counter++
