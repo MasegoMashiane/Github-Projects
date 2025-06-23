@@ -33,13 +33,11 @@ let y = Math.random()*canvas.height
 let dx = (Math.random()-0.5)*35
 let dy = (Math.random()-0.5)*35
 
-<<<<<<< HEAD
     ctx.beginPath()
     ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
     ctx.fillRect(Math.random()*canvas.width, Math.random()*canvas.height, 30, 30)
     ctx.stroke();
 }*/
-=======
 function animate(){
 
 
@@ -84,4 +82,3 @@ if (y + rad > canvas.height || y + rad < 2*rad){
 //     ctx.fillRect(Math.random()*canvas.width, Math.random()*canvas.height, 30, 30)
 //     ctx.stroke();
 // }
->>>>>>> d36c507400d1c43ddf41c1a3746f2291f86b6f1e
