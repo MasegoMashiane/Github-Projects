@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Black Jack </title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="Hero">
+            <h1> BLACK JACK </h1>
+            <P id="message-El"> Want to play a round?</P>
+            <p id="Cards"> Cards: </p>
+            <p id="Sum-El"> Sum: </p>
+            <div id="btns">
+                <button id="StartGame" onclick="startgame()"> Start Game </button>
+                <button id="Newcard-El" onclick="newcard()"> New Card</button> 
+            </div>
+            <p id ="player-El"> Player: R150</p>
+        </div>
+        <script src="index.js"></script>
+        <script> 
+        let clickCount = 0;
+
+        document.querySelector("#StartGame").addEventListener("click",
+        function(){
+            clickCount ++
+
+            if (clickCount === 1){
+            this.disabled = true;} 
+            else { 
+                return false
+            }
+        })
+        </script>
+    </body>
+</html>

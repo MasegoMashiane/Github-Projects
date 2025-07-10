@@ -1,0 +1,233 @@
+body{
+    background: linear-gradient(rgb(105, 98, 98), rgb(79, 77, 77));
+    max-height: 1250px;
+    height: 1250px;
+    width: 700px;
+    max-width: 700px;
+}
+#Calculator{
+    display: flex;
+}
+#everything{
+    display: flex;
+}
+canvas{
+    width: 660px;
+    height: 30rem;
+    background-color: aliceblue;
+}
+
+
+.Formulars{
+    border-radius: 12px;
+    box-shadow: 15px -15px 20px black;
+    margin-left: 130px;
+    height: 90px;
+    width: 430px;
+    background: white;
+}
+.Formulars.active1{
+    height: 1070px;
+    transition-duration: 4s;
+}
+#Form{
+    border-radius: 10px;
+    padding: 20px;
+    background: rgb(69, 67, 67);
+    height: 46px;
+    width: 380px;
+    margin: 2px;
+    overflow: hidden;
+}
+#Form.active2{
+    height: 1026px;
+    transition-duration: 4s;
+}
+
+.tab{
+    height: 70px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+    text-align: center;
+    font-size: x-large;
+    color: rgb(156, 156, 156);
+    background: rgb(46, 46, 46);
+
+    border-bottom: 2px solid rgb(201, 198, 198);
+    border-left: 2px solid rgb(201, 198, 198);
+    border-right: 2px solid rgb(105, 102, 102);
+    border-top: 2px solid rgb(35, 35, 35);
+    box-shadow: 5px -5px 2px black;
+}
+.texts{
+    margin-top: 3%;
+}
+.tab:hover{
+    background: rgb(61, 60, 60);
+    cursor: pointer; 
+}
+
+.frame{   
+    position:sticky;
+    right: 90%;
+    margin-top: 20px;
+    margin-left:auto ;
+    margin-right:auto ;
+    background: rgb(69, 67, 67);
+    width: 20rem;
+    height: 31.25rem;
+    min-width: 150px;
+    border-radius: 10px;
+
+    border-bottom: 2px solid rgb(201, 198, 198);
+    border-left: 2px solid rgb(201, 198, 198);
+    border-right: 2px solid rgb(105, 102, 102);
+    border-top: 2px solid rgb(35, 35, 35);
+    box-shadow: 15px -15px 20px black;
+    padding: 25px 1em 2px 2em;
+}
+h2{
+    margin:0;
+    color: white;
+    mix-blend-mode: difference;
+    font-family:'Courier New', Courier, monospace;
+
+    margin-bottom: 50px;
+}
+h1{ 
+    font-family:'Courier New', Courier, monospace;
+    color: rgb(27, 20, 20);
+    text-shadow: -2px 2px 5px black;
+    opacity: 0.75;
+    font-size: 70px;
+    animation: glow 4s ease-in-out 0s infinite both;
+}
+#GraphingPage{
+    margin-top: 20px;
+
+    background: rgb(69, 67, 67);
+
+    border-bottom: 2px solid rgb(201, 198, 198);
+    border-left: 2px solid rgb(201, 198, 198);
+    border-right: 2px solid rgb(105, 102, 102);
+    border-top: 2px solid rgb(35, 35, 35);
+    box-shadow: 15px -15px 20px black;
+    padding: 8px 1em 2px 2em;
+
+    width: 675px;
+}
+#pair {
+    padding-right: 3.7px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-evenly;
+}
+#Buttons {
+    margin-right: 5px;
+    display: block;
+    position: relative;
+    left: 1px;
+    width: 95%;
+    height: 95%;
+    margin-top: 10px;
+}
+#Display{
+    position: relative;
+    left: 9px;
+    background: rgba(28, 27, 27, 0.651);
+    width: 90%;
+    height: 15%;
+    min-width: 100px;
+    border-radius: 10px;
+    border-top: 2px solid rgb(108, 106, 106);
+    border-right: 2px solid rgb(112, 111, 111);
+    box-shadow: inset 3px -3px 7px black;
+    margin-right: 5px;
+
+    color: rgba(110, 110, 110, 0.778);
+    text-shadow: 
+    1px -1px 6px rgba(130, 130, 130, 0.678);
+
+    padding: 5px 5px 10px 5px;
+    
+    font-size: 1.2em;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#ErrorText{
+    font-size: small;
+    color: rgba(219, 92, 54, 0.509);
+    margin: 0;
+    padding: 2px 5px 10px 5px;
+    height: 60px;
+    overflow: hidden;
+}
+#Display:active{
+    background: rgba(14, 13, 13, 0.651); 
+}
+.row{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.top{
+    padding-left: 3px;
+    padding-right: 3px;
+    border-top: 2px solid rgba(244, 213, 156, 0.509);
+    border-left: 2px solid rgba(244, 213, 156, 0.509);
+    border-right:2px solid rgba(82, 57, 9, 0.509);
+    border-bottom:2px solid rgba(82, 57, 9, 0.509);
+    background: rgba(255, 166, 0, 0.509);
+}
+.top:active{
+    border-bottom: 2px solid rgba(244, 213, 156, 0.509);
+    border-right: 2px solid rgba(244, 213, 156, 0.509);
+    border-left:2px solid rgba(82, 57, 9, 0.509);
+    border-top:2px solid rgba(82, 57, 9, 0.509);
+    background: rgba(160, 105, 1, 0.509);
+}
+.operation{
+    color: rgba(255, 166, 0, 0.509);
+}
+button{
+    font-size: x-large;
+    border-radius: 10px;
+    color: rgb(156, 156, 156);
+    background: rgb(46, 46, 46);
+    margin-left: 1.5px;
+    width: 60px;
+    height: 60px;
+    box-shadow: 4px -4px 4px black;
+}
+button:active{
+    background: rgb(13, 13, 13);
+}
+button:hover{
+   opacity: 0.5;
+   cursor:pointer;
+}
+#Display:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+@keyframes glow{
+    0%{ color: rgba(105, 36, 15, 0.509);
+        text-shadow: -1px 1px 8px red;
+    }
+    100%{
+        text-shadow: 1px -1px 8px red;
+        color: rgba(230, 154, 13, 0.509);
+    } 
+}
+
+#HiddenButtons{
+    transition: transform 4s ease-in-out;
+}
+.slide-out{
+    transform: translateX(360px);
+}
+
+#Explanations:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}

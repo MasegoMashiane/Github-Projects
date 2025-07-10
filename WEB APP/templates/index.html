@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AustroLearn</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="/static/main.js"></script>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>🏛️ Learn Austrian Economics</h1>
+    <section>
+        <h2>Subjective Value Activity</h2>
+        <ul id="value-list">
+            <li draggable="true">🎮 Gaming Console</li>
+            <li draggable="true">📚 Textbooks</li>
+            <li draggable="true">🥤 Water</li>
+            <li draggable="true">💻 Laptop</li>
+        </ul>
+        <p>Drag to reorder items based on your value preference.</p>
+        <canvas id="valueChart" width="600" height="400"></canvas>
+    </section>
+    <section>
+        <h2>Capital Structure Visualization</h2>
+        <canvas id="capitalChart" width="600" height="400"></canvas>
+    </section>
+</body>
+</html>

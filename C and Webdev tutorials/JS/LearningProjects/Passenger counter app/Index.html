@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title> Passenger Counting App</title>
+    </head>
+    <body>
+        <div id="hero">
+            <h1 id="title"> People Entered:</h1>
+            <h2 id="counter"> 0 </h2>
+            <div class="btns">
+                <button class="btnE" onclick="increment()">Increment</button>
+                <button class="btnS" onclick="Save()">Save</button>
+                <button class="rstE" onclick="ResetE()"> Reset Increment </button>
+                <button class="rstE" onclick="Reset()"> Reset Saved</button>
+                <div class="saves">
+                    <p id="text">Saved Record:  </p>
+                    <p id="saved"> </p>
+                </div>
+            </div>
+            <script src="PassengerCounter.js"></script>      
+        </div>
+    </body>
+</html>

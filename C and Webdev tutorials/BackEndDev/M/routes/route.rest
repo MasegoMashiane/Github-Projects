@@ -1,0 +1,6 @@
+GET http://localhost:3000/subs
+
+
+###
+
+GET http://localhost:3000/subs/16

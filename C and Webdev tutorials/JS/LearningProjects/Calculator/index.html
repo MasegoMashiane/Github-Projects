@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <div id="hero"><h1>Calculator</h1></div>
+    </div>
+    <div id="everything">
+        <div id="main">
+            <div id="Calculator">
+                <div class="frame" id="HiddenButtons">
+                    <nav>
+                        <div class="class row">
+                            <button class="class row" onclick="tan()">tan</button>
+                            <button class="class row" onclick="cos()">cos</button>
+                            <button class="class row" onclick="sin()">sin</button>
+                            <button class="class row" onclick="sqrt()">sqrt</button>
+                        </div>
+                        <div class="class row">
+                            <button class="class row" onclick="ln()">ln</button>
+                            <button class="class row" onclick="pi()">pi</button>
+                            <button class="class row" onclick="e()"><i>e</i></button>
+                            <button class="class row" onclick="OpenBracket()">&#40</button>
+                        </div>
+
+                        <div class="class row">
+                            <button class="class row" onclick="FV()">FV</button>
+                            <button class="class row"><i></i></button>
+                            <button class="class row" onclick="i()"><i>i</i></button>
+                            <button class="class row" onclick="time()"><i>t</i></button>
+                        </div>
+                        <div class="class row">
+                            <button class="class row" onclick="PV()">PV</button>
+                            <button class="class row" onclick="N()"><i>n</i></button>
+                            <button class="class row" onclick="P()">P</button>
+                            <button class="class row" onclick="CloseBracket()">&#41</button>
+                        </div>
+                        <div class="class row">
+                            <button class="class row" onclick="BEP()">BEP</button>
+                            <button class="class row" onclick="FC()">FC</button>
+                            <button class="class row" onclick="VC()">VC</button>
+                            <button class="class row" onclick="GRM()">GR M</button>
+                        </div>
+                    </nav>
+                </div>
+
+                <div class="frame">
+                    
+                    <div id = "Display" onclick="toggleSlide()">
+                    <p id = "ErrorText"></p>
+                    </div>
+
+                    <div id = "Buttons">
+                        <div class="row" id= "pair">
+                            <button class="top" onclick="delet()">del</button>
+                            <button class="top" onclick="Clear()">CA</button>
+                            <button class="top" onclick="Okay()">OK</button>
+                        </div>
+                        <div class="row">
+                            <button class="operation" onclick="Operat('+')">+</button>
+                            <button onclick="num(7)">7</button>
+                            <button onclick="num(8)">8</button>
+                            <button onclick="num(9)">9</button>
+                        </div>
+                        <div class="row">
+                            <button class="operation" onclick="Operat('-')">-</button>
+                            <button onclick="num(4)">4</button>
+                            <button onclick="num(5)">5</button>
+                            <button onclick="num(6)">6</button>
+                        </div>
+                        <div class="row">
+                            <button class="operation" onclick="Operat('*')">*</button>
+                            <button onclick="num(1)">1</button>
+                            <button onclick="num(2)">2</button>
+                            <button onclick="num(3)">3</button>
+                        </div>
+                        <div class="row">
+                            <button class="operation" onclick="Operat('/')">/</button>
+                            <button class="operation" onclick="num('.')">.</button>
+                            <button class="operation" onclick="EqualTo()">=</button>
+                            <button onclick="num(0)">0</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div id="GraphingPage">
+                <canvas></canvas>
+            </div>
+        </div>
+        
+        <div class="Formulars">
+            <div class="=Formulars" id="Form">
+                
+                <h2 id="Explanations" onclick="toggleSlideDown()">FORMULARS AND EXPLANATIONS</h2>
+                
+                <div id="Tabs">
+                    <div class="tab" id="tab 1"> <div class="texts">Future Value (FV) </div></div>
+                    <div class="tab" id="tab 2"><div class="texts"> Present Value (PV) </div></div>
+                    <div class="tab" id="tab 3"><div class="texts">  Break Even Point (BEP) </div></div>
+                    <div class="tab" id="tab 4"><div class="texts"> Fixed Costs (FC) </div></div>
+                    <div class="tab" id="tab 5"><div class="texts"> Variable Costs (VC) </div></div>
+                    <div class="tab" id="tab 6"><div class="texts"> Interest (i)</div></div>
+                    <div class="tab" id="tab 7"><div class="texts"> Principle Amount (P)</div></div>
+                    <div class="tab" id="tab 8"><div class="texts"> Number of payments (n)</div></div>
+                    <div class="tab" id="tab 9"><div class="texts">  </div>Graphing Mode (GRM)</div>
+                    <div class="tab" id="tab 10"><div class="texts">  </div> euler's number (e) </div>
+                    <div class="tab" id="tab 11"><div class="texts"> </div></div>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
