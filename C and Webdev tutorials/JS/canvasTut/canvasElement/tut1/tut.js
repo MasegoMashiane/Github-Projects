@@ -4,24 +4,15 @@ canvas.height = window.innerHeight;
 
 const ctx = canvas.getContext('2d')
 
-let r = 10;
-let x = r;
-let dx = 0.5;
-let y = 5;
-let dy = 0.5;
-function animate() {
-    requestAnimationFrame(animate);
-    //ctx.clearRect(0, 0, canvas.width, canvas.height)
-    //ctx.clearRect(0,0, canvas.width, canvas.height)
-    ctx.beginPath();
-    ctx.arc(x, Math.random()*canvas.height, r, 0, Math.PI*2, false);
-    ctx.strokeStyle = 'blue';
-    ctx.stroke();
-    x += dx;
-}
+// let r = 10;
+// let x = r;
+// let dx = 0.5;
+// let y = 5;
+// let dy = 0.5;
 
-animate()
-/*let r;
+
+
+let r;
 let g;
 let b;
 
@@ -33,11 +24,39 @@ let y = Math.random()*canvas.height
 let dx = (Math.random()-0.5)*35
 let dy = (Math.random()-0.5)*35
 
-    ctx.beginPath()
-    ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
-    ctx.fillRect(Math.random()*canvas.width, Math.random()*canvas.height, 30, 30)
-    ctx.stroke();
-}*/
+//     ctx.beginPath()
+//     ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+//     ctx.fillRect(Math.random()*canvas.width, Math.random()*canvas.height, 30, 30)
+//     ctx.stroke();
+// }
+
+
+function Circle(x, y, dx, dy, rad){
+
+    r = Math.floor(Math.random()*256)
+    g = Math.floor(Math.random()*256)
+    b = Math.floor(Math.random()*256)
+    
+    this.x = x
+    this.y = y
+    this.rad = rad
+    this.dx = dx
+    this.dy = dy
+
+    this.draw = function (){
+        ctx.beginPath();
+        ctx.arc(x, y, rad, 0, Math.PI*2, false);
+        ctx.strokeStyle = `rgb(${r}, ${g}, ${b})`
+        ctx.stroke();
+    
+    }
+}
+
+let circle =  new Circle(200, 200, 5, 5, 50)
+circle.draw()
+
+
+
 function animate(){
 
 
@@ -60,7 +79,7 @@ if (y + rad > canvas.height || y + rad < 2*rad){
 
 }
 }
-// animate()
+//animate()
 // for(let i = 0; i<10 ; i++){
 //     r = Math.floor(Math.random()*256)
 //     g = Math.floor(Math.random()*256)
