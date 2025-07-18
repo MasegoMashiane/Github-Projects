@@ -4,17 +4,35 @@
 
 let allstudents = ['Paul', 'Parker', 'Palesa', 'Pat', 'Prudence']
 
-function FindStudentName(allstudents, studentname){
- for (let i = 0; i < allstudents.length; i++){
-    if (allstudents[i] === studentname ){
-        return allstudents[i]
-    }
-    else{
-        return "Name not found"
-    }
- }
+function upperCase(element, index, allstudents){ 
+    allstudents[index] = element.toUpperCase()
+   
 }
 
-console.log(FindStudentName(allstudents, "Paul"))
+allstudents.forEach(upperCase)
+
+let FindStudentName = (allstudents, studentname) => {
+    
+    studentname = studentname.toUpperCase()
+
+
+    if (studentname === ""){
+        return `Error: you did not type in name`
+    }
+
+    for (let i = 0; i < allstudents.length; i++){
+
+        if (allstudents[i] === studentname ){
+            return `${studentname} found at index ${i}`
+        }
+        console.log(studentname)
+        console.log(allstudents[i])
+        console.log(allstudents)
+        console.log(i)
+    }
+
+    return "Name not found"
+}
+console.log(FindStudentName(allstudents, "riley"))
 
 //linear search algorithm
