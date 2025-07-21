@@ -16,15 +16,16 @@ compressButton.addEventListener('click',
         }
 
         reader.onload = function(e){
-
             const text = e.target.result
             const utf8Bytes = new TextEncoder().encode(text)
             const compressed = pako.gzip(utf8Bytes)
             const blob = new Blob([compressed], {type: 'application/gzip'})
             const url = URL.createObjectURL(blob)
+            console.log(url)
             const link = download
             link.href = url
             link.style.display = 'inline-block'
+
             // Compressedt.innerHTML =
             // `${(compressed.length/1024).toFixed(2)}KB</p>
             // ${(compressed.length/1024*1024).toFixed(2)}MB</p>
