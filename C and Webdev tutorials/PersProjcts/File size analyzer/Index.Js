@@ -7,8 +7,6 @@ const Details = document.getElementById('Details')
 const reader = new FileReader 
 let selectedFile = null
 
-
-
 compressButton.addEventListener('click', 
     (e)=>{
         if(!selectedFile){
@@ -33,17 +31,14 @@ compressButton.addEventListener('click',
             <p>Compressed Sized (KB): ${(compressed.length/1024).toFixed(2)}KB</p>
             <p>Compressed Sized (MB): ${(compressed.length/(1024*1024)).toFixed(2)}MB</p>
             <P style="color: white;
-                     font-size:x-large;">${(((selectedFile.size-compressed.length)/selectedFile.size)*100).toFixed(2)}% was compressed</P>
-
+                     font-size:x-large;">
+                     ${(((selectedFile.size-compressed.length)/selectedFile.size)*100).toFixed(2)}% was compressed</P>
             `
         downloadBtn.style.display = 'inline-block'
     }
     reader.readAsText(selectedFile)
     }
-    
 )
-
-
 
 fileDrop.addEventListener("drop", (e) => {
     e.preventDefault()
@@ -52,7 +47,6 @@ fileDrop.addEventListener("drop", (e) => {
     const file = files[0]
     
     //console.log(file, files.length)
-
     if (files.length > 1){
         compressButton.disable = true
         download.disable = true
@@ -65,7 +59,6 @@ fileDrop.addEventListener("drop", (e) => {
 
         return
     }
-
     else {
 
         if (files.length === 1){
@@ -75,7 +68,6 @@ fileDrop.addEventListener("drop", (e) => {
             //check if file type is supported by the type property
         }
     }
-
     Details.innerHTML = `
     <p><strong> File name:</strong> </p>
     <p>${file.name}</p> 
@@ -86,12 +78,7 @@ fileDrop.addEventListener("drop", (e) => {
     <p>${file.type}</p>`
 });
 
-
-
 // Create a preview function
-
-
 fileDrop.addEventListener('dragover', (e)=>{
     e.preventDefault();
 })
-
