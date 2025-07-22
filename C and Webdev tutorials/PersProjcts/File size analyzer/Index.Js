@@ -17,6 +17,8 @@ compressButton.addEventListener('click',
 
         reader.onload = function(e){
             const text = e.target.result
+            const OriginalBytes = e.target.result.byteLength
+            
             const utf8Bytes = new TextEncoder().encode(text)
             const compressed = pako.gzip(utf8Bytes)
             const blob = new Blob([compressed], {type: 'application/gzip'})
@@ -26,13 +28,17 @@ compressButton.addEventListener('click',
             link.href = url
             link.style.display = 'inline-block'
 
-            // Compressedt.innerHTML =
-            // `${(compressed.length/1024).toFixed(2)}KB</p>
-            // ${(compressed.length/1024*1024).toFixed(2)}MB</p>
-            // `
-        reader.readAsText(selectedFile)
-        downloadBtn.style.display = 'block'
+            Compressedt.innerHTML =
+            `
+            <p>Compressed Sized (KB): ${(compressed.length/1024).toFixed(2)}KB</p>
+            <p>Compressed Sized (MB): ${(compressed.length/(1024*1024)).toFixed(2)}MB</p>
+            <P style="color: white;
+                     font-size:x-large;">${(((selectedFile.size-compressed.length)/selectedFile.size)*100).toFixed(2)}% was compressed</P>
+
+            `
+        downloadBtn.style.display = 'inline-block'
     }
+    reader.readAsText(selectedFile)
     }
     
 )
@@ -54,6 +60,7 @@ fileDrop.addEventListener("drop", (e) => {
         fileDrop.textContent = 'ERROR: cannot process more than one file at a time'
         fileDrop.style.color = 'red'
         compressButton.style.display = 'none'
+        compressButton.style.background = 'none'
         download.style.display = 'none'
 
         return
@@ -68,18 +75,6 @@ fileDrop.addEventListener("drop", (e) => {
             //check if file type is supported by the type property
         }
     }
-
-    //    if (reader.error){
-    //         fileDrop.textContent = 'There was an error uploading your file'
-    //     }
-
-    //     if(reader.EMPTY){
-    //     fileDrop.textContent = 'No files dropped'
-    //     }
-
-    //     if (reader.LOADING){
-    //         fileDrop.textContent = 'loading...'
-    //     }
 
     Details.innerHTML = `
     <p><strong> File name:</strong> </p>

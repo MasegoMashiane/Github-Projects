@@ -1,15 +1,55 @@
 
+html{
+    
+    background-color: #9e9e0c;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
 
 #container{
-    border: 1px solid #000000;
+    border: 4px solid rgb(46, 66, 4);
+    background: white;
     height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: grab;
+    cursor:grab ;
+
+    border-radius: 15px;
 }
 
+#CompressBtn{
+    margin-right: 1rem;
+}
 .Btn{
     margin-top: 1rem;
-    
+    height: 25px;
+    min-width: 75.551px;
+
+    background: rgb(46, 66, 4);
+    border: 0 solid rgb(46, 66, 4);
+    border-radius: 15px;
+}
+
+.Btn:active{
+    color: #9e9e0c;
+}
+
+a{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+a:active{
+    color: red;
+}
+
+.Btn:hover{    
+    cursor: pointer;
+    background: rgb(27, 39, 2);
+}
+
+#BtnContainer{
+    display: flex;
+    justify-content: center;
 }
