@@ -14,116 +14,116 @@ function toggleSlideDown(){
 }
 
 
-const Display = document.getElementById("Display")
-const DisplayError = document.getElementById("ErrorText")
+const display = document.getElementById("Display")
+const displayError = document.getElementById("ErrorText")
 
 let calc = []
 let a = null
 let b = null
 let c = null
-let Answer = 0
+let answer = 0
 
-let CloseBracketTracker = 0
-let OpenBracketTracker = 0
-let Openbrac = false
+let closeBracketTracker = 0
+let openBracketTracker = 0
+let openbrac = false
 
-let Operation = ""
+let operation = ""
 
-function OpenBracket(){
+function openBracket(){
     num("(")
-    Openbrac = true
-    OpenBracketTracker ++
-    console.log(`OpBrackets: ${OpenBracketTracker}`)
+    openbrac = true
+    openBracketTracker ++
+    console.log(`OpBrackets: ${openBracketTracker}`)
 }
-function CloseBracket(){
+function closeBracket(){
     num(")")
-    CloseBracketTracker ++    
-    console.log(`CloseBrackets: ${CloseBracketTracker}`)
+    closeBracketTracker ++    
+    console.log(`CloseBrackets: ${closeBracketTracker}`)
 }
 
-function BracCheck(){
-    if( Openbrac === true){
-        if (OpenBracketTracker > CloseBracketTracker){
-            DisplayError.textContent = "Error: Closing Bracket Missing"
+function bracCheck(){
+    if( openbrac === true){
+        if (openBracketTracker > closeBracketTracker){
+            displayError.textContent = "Error: Closing Bracket Missing"
         }
-        else if (OpenBracketTracker < CloseBracketTracker){
-            DisplayError.textContent = "Error: Redundant Closing Bracket"
+        else if (openBracketTracker < closeBracketTracker){
+            displayError.textContent = "Error: Redundant Closing Bracket"
         }
     }
 }
 
-function EqualTo(){ 
-    b = NumStringArraytoNum()
-    BracCheck()
-    Answer = null
-    if (a !== null && b !== null && Operation !==""){
-       switch(Operation){
+function equalTo(){ 
+    b = numStringArraytoNum()
+    bracCheck()
+    answer = null
+    if (a !== null && b !== null && operation !==""){
+       switch(operation){
             case "Sqrt":
-                Answer = Math.sqrt(a)
-                a = Answer
+                answer = Math.sqrt(a)
+                a = answer
                 if (c === null ){
-                    c = Answer
+                    c = answer
                 }
-                if (Answer === 0 && c!== null){
-                    Display.textContent = c
+                if (answer === 0 && c!== null){
+                    display.textContent = c
                 }
             break;
 
             case "**":
-                Answer = a**b
-                a = Answer
-                Display.textContent = Answer
+                answer = a**b
+                a = answer
+                display.textContent = answer
                 if (c === null ){
-                    c = Answer
+                    c = answer
                 }
-                if (Answer === 0 && c!== null){
-                    Display.textContent = c
+                if (answer === 0 && c!== null){
+                    display.textContent = c
                 }
             break;
                                  
             case "*":
-                Answer = a * b
-                Display.textContent = Answer
+                answer = a * b
+                display.textContent = answer
                 if (c === null ){
-                    c = Answer
+                    c = answer
                 }
-                if (Answer === 0 && c!== null){
-                    Display.textContent = c
+                if (answer === 0 && c!== null){
+                    display.textContent = c
                 }
             break;
 
             case "+":
-                Answer = a+b
-                a = Answer
-                Display.textContent = Answer
+                answer = a+b
+                a = answer
+                display.textContent = answer
                 if (c === null ){
-                    c = Answer
+                    c = answer
                 }
-                if (Answer === 0 && c!== null){
-                    Display.textContent = c
+                if (answer === 0 && c!== null){
+                    display.textContent = c
                 }
             break;
 
             case "-":
                 if (c === null ){
-                    Answer = a-b
-                    c = Answer
-                    Display.textContent = Answer
+                    answer = a-b
+                    c = answer
+                    display.textContent = answer
                 }
                 if (c!== null){
-                    Display.textContent = c
+                    display.textContent = c
                 }
             break;
 
             case "/":
-                Answer = a/b
-                Display.textContent = Answer
+                answer = a/b
+                display.textContent = answer
                 if (c === null ){
-                    c = Answer}
-                if (Answer === Infinity && b === 0){
-                    Display.textContent = c}
-                if (Answer === Infinity && c === Infinity){
-                    Display.textContent = "Error: Did you just divide by zero!?? UH-OH!!You've Just Created a black Hole"
+                    c = answer}
+                if (answer === Infinity && b === 0){
+                    display.textContent = c}
+                if (answer === Infinity && c === Infinity){
+                    display.textContent = "Error: Did you just divide by zero!?? UH-OH!!You've Just Created a black Hole"
                 } 
             break;
         }
@@ -132,86 +132,86 @@ function EqualTo(){
 //Assigning numbers to number buttons 
 function num(n){
     calc.push(n)
-    Display.textContent += n
+    display.textContent += n
 }
 
-let FutureValue = null
-let PresentValue = null
-let InterestRate = null
-let NumberofCompundings = null
-let Time = null
-let IsSimple = true
+let futureValue = null
+let presentValue = null
+let interestRate = null
+let numberofCompundings = null
+let tim = null
+let isSimple = true
 
-function FV(){
-    /*if(IsSimple){
-    Display.textContent = "Press 1 if Simple Interest and 0 if Compound Interest: "
-    IsSimple = num()}
+function fV(){
+    /*if(isSimple){
+    display.textContent = "Press 1 if Simple Interest and 0 if Compound Interest: "
+    isSimple = num()}
 
-    else if(InterestRate === null){
-        Display.textContent = `interest rate: `
-        InterestRate = Display.value
-        Display.textContent = `interest rate: ${InterestRate}`
+    else if(interestRate === null){
+        display.textContent = `interest rate: `
+        interestRate = display.value
+        display.textContent = `interest rate: ${interestRate}`
     }
     
-    else if(PresentValue===null){
-        Display.textContent = "Present Value: "
-        PresentValue = Display.value
-        Display.textContent = `Present Value: ${PresentValue}`
+    else if(presentValue===null){
+        display.textContent = "Present Value: "
+        presentValue = display.value
+        display.textContent = `Present Value: ${presentValue}`
     }
-    else if(NumberofCompundings===null){
-        Display.textContent = `Number of Compoundings:`
-        InterestRate = Display.value
-        Display.textContent = `Number of Compoundings: ${InterestRate}`
+    else if(numberofCompundings===null){
+        display.textContent = `Number of Compoundings:`
+        numberofCompundings = display.value
+        display.textContent = `Number of Compoundings: ${numberofCompundings}`
     }
-    else if(Time===null){
-        Display.textContent = `Time:`
-        InterestRate = Display.value
-        Display.textContent = `Time: ${Time}`
+    else if(tim===null){
+        display.textContent = `Time:`
+        tim = display.value
+        display.textContent = `Time: ${tim}`
     }
     
     else{
-    if(IsSimple == 1){
-        Display.textContent = "Simple Interest"
-        FutureValue = PresentValue*(1+InterestRate*Time)
-        Display.textContent = `Future Value Is: ${FutureValue}`
+    if(isSimple == 1){
+        display.textContent = "Simple Interest"
+        FutureValue = presentValue*(1+interestRate*tim)
+        display.textContent = `Future Value Is: ${FutureValue}`
     }
     
     else{
-        Display.textContent = "Compound Interest"
-        FutureValue = PresentValue*(1+(InterestRate/NumberofCompundings))**(NumberofCompundings*Time)
-        Display.textContent = `Future Value Is: ${FutureValue}`
+        display.textContent = "Compound Interest"
+        futureValue = presentValue*(1+(interestRate/numberofCompundings))**(numberofCompundings*tim)
+        display.textContent = `Future Value Is: ${FutureValue}`
     }}*/
-   DisplayError.textContent = "Button under construction"
+   displayError.textContent = "Button under construction"
 }
 function i(){
-    DisplayError.textContent = "Button under construction"
+    displayError.textContent = "Button under construction"
 }
 function time(){
-    DisplayError.textContent = "Button under construction"
+    displayError.textContent = "Button under construction"
 }
-function PV(){
-    DisplayError.textContent = "Button under construction"
+function pV(){
+    displayError.textContent = "Button under construction"
 }
-function N(){
-    DisplayError.textContent = "Button under construction"
+function n(){
+    displayError.textContent = "Button under construction"
 }
-function P(){
-    DisplayError.textContent = "Button under construction"
+function p(){
+    displayError.textContent = "Button under construction"
 }
 
 
 //Assigning Functions to operation buttons 
-function Operat(Op){
-    a = NumStringArraytoNum()
-    Operation = Op
-    Display.textContent += ` ${Op} `
+function operat(op){
+    a = numStringArraytoNum()
+    operation = op
+    display.textContent += ` ${op} `
 }
 
 //Taking inputs from array and joining them such that you have a single string number
 //Then type-converting the string to a number
 //Clearing the array to accept the second number
 
-function  NumStringArraytoNum(){   
+function  numStringArraytoNum(){   
     let str = ""
     str = calc.join("")
     number = Number(str)
@@ -221,23 +221,23 @@ function  NumStringArraytoNum(){
 
 function delet(){
     calc.pop()
-    Display.textContent = Display.textContent.slice(0, -1)
+    display.textContent = display.textContent.slice(0, -1)
 }
-function Okay(){
+function okay(){
 
 }
-function Clear(){
-FutureValue = null
-PresentValue = null
-InterestRate = null
-NumberofCompundings = null
-Time = null
-IsSimple = true
+function clear(){
+futureValue = null
+presentValue = null
+interestRate = null
+numberofCompundings = null
+tim = null
+isSimple = true
 
     a = null
     b = null
     c = null
-    Answer = null
+    answer = null
     calc = []
-    Display.textContent = ""
+    display.textContent = ""
 }
