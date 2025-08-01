@@ -52,80 +52,106 @@ function BracCheck(){
     }
 }
 
-function EqualTo(){ 
-    b = NumStringArraytoNum()
-    BracCheck()
-    Answer = null
-    if (a !== null && b !== null && Operation !==""){
-       switch(Operation){
+// Helper function to update display and state after calculation
+function updateCalculatorState(result) {
+    a = result;
+    if (c === null) {
+        c = result;
+    }
+    if (result === 0 && c !== null) {
+        Display.textContent = c;
+    } else {
+        Display.textContent = result;
+    }
+}
+
+// Helper function to perform square root operation
+function performSquareRoot() {
+    const result = Math.sqrt(a);
+    updateCalculatorState(result);
+    return result;
+}
+
+// Helper function to perform exponentiation
+function performExponentiation() {
+    const result = a ** b;
+    updateCalculatorState(result);
+    return result;
+}
+
+// Helper function to perform multiplication
+function performMultiplication() {
+    const result = a * b;
+    updateCalculatorState(result);
+    return result;
+}
+
+// Helper function to perform addition
+function performAddition() {
+    const result = a + b;
+    updateCalculatorState(result);
+    return result;
+}
+
+// Helper function to perform subtraction
+function performSubtraction() {
+    if (c === null) {
+        const result = a - b;
+        c = result;
+        Display.textContent = result;
+        return result;
+    }
+    if (c !== null) {
+        Display.textContent = c;
+    }
+    return c;
+}
+
+// Helper function to perform division with error handling
+function performDivision() {
+    const result = a / b;
+    
+    if (c === null) {
+        c = result;
+    }
+    
+    if (result === Infinity && b === 0) {
+        Display.textContent = c;
+    } else if (result === Infinity && c === Infinity) {
+        Display.textContent = "Error: Did you just divide by zero!?? UH-OH!!You've Just Created a black Hole";
+    } else {
+        Display.textContent = result;
+    }
+    
+    return result;
+}
+
+// Main calculation function - now much cleaner and more readable
+function EqualTo() {
+    b = NumStringArraytoNum();
+    BracCheck();
+    Answer = null;
+    
+    if (a !== null && b !== null && Operation !== "") {
+        switch(Operation) {
             case "Sqrt":
-                Answer = Math.sqrt(a)
-                a = Answer
-                if (c === null ){
-                    c = Answer
-                }
-                if (Answer === 0 && c!== null){
-                    Display.textContent = c
-                }
-            break;
-
+                Answer = performSquareRoot();
+                break;
             case "**":
-                Answer = a**b
-                a = Answer
-                Display.textContent = Answer
-                if (c === null ){
-                    c = Answer
-                }
-                if (Answer === 0 && c!== null){
-                    Display.textContent = c
-                }
-            break;
-                                 
+                Answer = performExponentiation();
+                break;
             case "*":
-                Answer = a * b
-                Display.textContent = Answer
-                if (c === null ){
-                    c = Answer
-                }
-                if (Answer === 0 && c!== null){
-                    Display.textContent = c
-                }
-            break;
-
+                Answer = performMultiplication();
+                break;
             case "+":
-                Answer = a+b
-                a = Answer
-                Display.textContent = Answer
-                if (c === null ){
-                    c = Answer
-                }
-                if (Answer === 0 && c!== null){
-                    Display.textContent = c
-                }
-            break;
-
+                Answer = performAddition();
+                break;
             case "-":
-                if (c === null ){
-                    Answer = a-b
-                    c = Answer
-                    Display.textContent = Answer
-                }
-                if (c!== null){
-                    Display.textContent = c
-                }
-            break;
-
+                Answer = performSubtraction();
+                break;
             case "/":
-                Answer = a/b
-                Display.textContent = Answer
-                if (c === null ){
-                    c = Answer}
-                if (Answer === Infinity && b === 0){
-                    Display.textContent = c}
-                if (Answer === Infinity && c === Infinity){
-                    Display.textContent = "Error: Did you just divide by zero!?? UH-OH!!You've Just Created a black Hole"
-                } 
-            break;
+                Answer = performDivision();
+                break;
         }
     }
 }
@@ -142,46 +168,53 @@ let NumberofCompundings = null
 let Time = null
 let IsSimple = true
 
-function FV(){
-    /*if(IsSimple){
-    Display.textContent = "Press 1 if Simple Interest and 0 if Compound Interest: "
-    IsSimple = num()}
+// Helper function to calculate simple interest future value
+function calculateSimpleInterest(principal, rate, time) {
+    return principal * (1 + rate * time);
+}
 
-    else if(InterestRate === null){
-        Display.textContent = `interest rate: `
-        InterestRate = Display.value
-        Display.textContent = `interest rate: ${InterestRate}`
+// Helper function to calculate compound interest future value
+function calculateCompoundInterest(principal, rate, compoundings, time) {
+    return principal * (1 + (rate / compoundings)) ** (compoundings * time);
+}
+
+// Helper function to validate financial calculation inputs
+function validateFinancialInputs(pv, rate, time, compoundings = null) {
+    if (pv <= 0 || rate < 0 || time <= 0) {
+        return false;
     }
+    if (compoundings !== null && compoundings <= 0) {
+        return false;
+    }
+    return true;
+}
+
+// Future Value calculation function - refactored for clarity
+function FV() {
+    /* TODO: Implement step-by-step input collection for financial calculations
     
-    else if(PresentValue===null){
-        Display.textContent = "Present Value: "
-        PresentValue = Display.value
-        Display.textContent = `Present Value: ${PresentValue}`
-    }
-    else if(NumberofCompundings===null){
-        Display.textContent = `Number of Compoundings:`
-        InterestRate = Display.value
-        Display.textContent = `Number of Compoundings: ${InterestRate}`
-    }
-    else if(Time===null){
-        Display.textContent = `Time:`
-        InterestRate = Display.value
-        Display.textContent = `Time: ${Time}`
-    }
+    // Step-by-step input collection approach:
+    // 1. Collect interest type (simple vs compound)
+    // 2. Collect present value
+    // 3. Collect interest rate
+    // 4. Collect time period
+    // 5. If compound, collect compounding frequency
+    // 6. Calculate and display result
     
-    else{
-    if(IsSimple == 1){
-        Display.textContent = "Simple Interest"
-        FutureValue = PresentValue*(1+InterestRate*Time)
-        Display.textContent = `Future Value Is: ${FutureValue}`
+    if (validateFinancialInputs(PresentValue, InterestRate, Time, NumberofCompundings)) {
+        if (IsSimple) {
+            FutureValue = calculateSimpleInterest(PresentValue, InterestRate, Time);
+            Display.textContent = `Future Value (Simple): ${FutureValue.toFixed(2)}`;
+        } else {
+            FutureValue = calculateCompoundInterest(PresentValue, InterestRate, NumberofCompundings, Time);
+            Display.textContent = `Future Value (Compound): ${FutureValue.toFixed(2)}`;
+        }
+    } else {
+        DisplayError.textContent = "Error: Invalid input values for financial calculation";
     }
+    */
     
-    else{
-        Display.textContent = "Compound Interest"
-        FutureValue = PresentValue*(1+(InterestRate/NumberofCompundings))**(NumberofCompundings*Time)
-        Display.textContent = `Future Value Is: ${FutureValue}`
-    }}*/
-   DisplayError.textContent = "Button under construction"
+    DisplayError.textContent = "Button under construction";
 }
 function i(){
     DisplayError.textContent = "Button under construction"
