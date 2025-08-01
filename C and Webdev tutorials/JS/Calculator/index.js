@@ -14,174 +14,143 @@ function toggleSlideDown(){
 }
 
 
-const Display = document.getElementById("Display")
-const DisplayError = document.getElementById("ErrorText")
+const display = document.getElementById("Display")
+const displayError = document.getElementById("ErrorText")
 
 let calc = []
 let a = null
 let b = null
 let c = null
-let Answer = 0
+let answer = 0
 
-let CloseBracketTracker = 0
-let OpenBracketTracker = 0
-let Openbrac = false
+let closeBracketTracker = 0
+let openBracketTracker = 0
+let openbrac = false
 
-let Operation = ""
+let operation = ""
 
-function OpenBracket(){
+function openBracket(){
     num("(")
-    Openbrac = true
-    OpenBracketTracker ++
-    console.log(`OpBrackets: ${OpenBracketTracker}`)
+    openbrac = true
+    openBracketTracker ++
+    console.log(`OpBrackets: ${openBracketTracker}`)
 }
-function CloseBracket(){
+function closeBracket(){
     num(")")
-    CloseBracketTracker ++    
-    console.log(`CloseBrackets: ${CloseBracketTracker}`)
+    closeBracketTracker ++    
+    console.log(`CloseBrackets: ${closeBracketTracker}`)
 }
 
-function BracCheck(){
-    if( Openbrac === true){
-        if (OpenBracketTracker > CloseBracketTracker){
-            DisplayError.textContent = "Error: Closing Bracket Missing"
+function bracCheck(){
+    if( openbrac === true){
+        if (openBracketTracker > closeBracketTracker){
+            displayError.textContent = "Error: Closing Bracket Missing"
         }
-        else if (OpenBracketTracker < CloseBracketTracker){
-            DisplayError.textContent = "Error: Redundant Closing Bracket"
+        else if (openBracketTracker < closeBracketTracker){
+            displayError.textContent = "Error: Redundant Closing Bracket"
         }
     }
 }
 
-// Helper function to update display and state after calculation
-function updateCalculatorState(result) {
-    a = result;
-    if (c === null) {
-        c = result;
-    }
-    if (result === 0 && c !== null) {
-        Display.textContent = c;
-    } else {
-        Display.textContent = result;
-    }
-}
-
-// Helper function to perform square root operation
-function performSquareRoot() {
-    const result = Math.sqrt(a);
-    updateCalculatorState(result);
-    return result;
-}
-
-// Helper function to perform exponentiation
-function performExponentiation() {
-    const result = a ** b;
-    updateCalculatorState(result);
-    return result;
-}
-
-// Helper function to perform multiplication
-function performMultiplication() {
-    const result = a * b;
-    updateCalculatorState(result);
-    return result;
-}
-
-// Helper function to perform addition
-function performAddition() {
-    const result = a + b;
-    updateCalculatorState(result);
-    return result;
-}
-
-// Helper function to perform subtraction
-function performSubtraction() {
-    if (c === null) {
-        const result = a - b;
-        c = result;
-        Display.textContent = result;
-        return result;
-    }
-    if (c !== null) {
-        Display.textContent = c;
-    }
-    return c;
-}
-
-// Helper function to perform division with error handling
-function performDivision() {
-    const result = a / b;
-    
-    if (c === null) {
-        c = result;
-    }
-    
-    if (result === Infinity && b === 0) {
-        Display.textContent = c;
-    } else if (result === Infinity && c === Infinity) {
-        Display.textContent = "Error: Did you just divide by zero!?? UH-OH!!You've Just Created a black Hole";
-    } else {
-        Display.textContent = result;
-    }
-    
-    return result;
-}
-
-// Main calculation function - now much cleaner and more readable
-function EqualTo() {
-    b = NumStringArraytoNum();
-    BracCheck();
-    Answer = null;
-    
-    if (a !== null && b !== null && Operation !== "") {
-        switch(Operation) {
+function equalTo(){ 
+    b = numStringArraytoNum()
+    bracCheck()
+    answer = null
+    if (a !== null && b !== null && operation !==""){
+       switch(operation){
             case "Sqrt":
-                Answer = performSquareRoot();
-                break;
+                answer = Math.sqrt(a)
+                a = answer
+                if (c === null ){
+                    c = answer
+                }
+                if (answer === 0 && c!== null){
+                    display.textContent = c
+                }
+            break;
+
             case "**":
-                Answer = performExponentiation();
-                break;
+                answer = a**b
+                a = answer
+                display.textContent = answer
+                if (c === null ){
+                    c = answer
+                }
+                if (answer === 0 && c!== null){
+                    display.textContent = c
+                }
+            break;
+                                 
             case "*":
-                Answer = performMultiplication();
-                break;
+                answer = a * b
+                display.textContent = answer
+                if (c === null ){
+                    c = answer
+                }
+                if (answer === 0 && c!== null){
+                    display.textContent = c
+                }
+            break;
+
             case "+":
-                Answer = performAddition();
-                break;
+                answer = a+b
+                a = answer
+                display.textContent = answer
+                if (c === null ){
+                    c = answer
+                }
+                if (answer === 0 && c!== null){
+                    display.textContent = c
+                }
+            break;
+
             case "-":
-                Answer = performSubtraction();
-                break;
+                if (c === null ){
+                    answer = a-b
+                    c = answer
+                    display.textContent = answer
+                }
+                if (c!== null){
+                    display.textContent = c
+                }
+            break;
+
             case "/":
-                Answer = performDivision();
-                break;
+                answer = a/b
+                display.textContent = answer
+                if (c === null ){
+                    c = answer}
+                if (answer === Infinity && b === 0){
+                    display.textContent = c}
+                if (answer === Infinity && c === Infinity){
+                    display.textContent = "Error: Did you just divide by zero!?? UH-OH!!You've Just Created a black Hole"
+                } 
+            break;
         }
     }
 }
 //Assigning numbers to number buttons 
 function num(n){
     calc.push(n)
-    Display.textContent += n
+    display.textContent += n
 }
 
-let FutureValue = null
-let PresentValue = null
-let InterestRate = null
-let NumberofCompundings = null
-let Time = null
-let IsSimple = true
+let futureValue = null
+let presentValue = null
+let interestRate = null
+let numberofCompundings = null
+let tim = null
+let isSimple = true
 
-// Helper function to calculate simple interest future value
-function calculateSimpleInterest(principal, rate, time) {
-    return principal * (1 + rate * time);
-}
+function fV(){
+    /*if(isSimple){
+    display.textContent = "Press 1 if Simple Interest and 0 if Compound Interest: "
+    isSimple = num()}
 
-// Helper function to calculate compound interest future value
-function calculateCompoundInterest(principal, rate, compoundings, time) {
-    return principal * (1 + (rate / compoundings)) ** (compoundings * time);
-}
-
-// Helper function to validate financial calculation inputs
-function validateFinancialInputs(pv, rate, time, compoundings = null) {
-    if (pv <= 0 || rate < 0 || time <= 0) {
-        return false;
+    else if(interestRate === null){
+        display.textContent = `interest rate: `
+        interestRate = display.value
+        display.textContent = `interest rate: ${interestRate}`
     }
     if (compoundings !== null && compoundings <= 0) {
         return false;
@@ -193,58 +162,66 @@ function validateFinancialInputs(pv, rate, time, compoundings = null) {
 function FV() {
     /* TODO: Implement step-by-step input collection for financial calculations
     
-    // Step-by-step input collection approach:
-    // 1. Collect interest type (simple vs compound)
-    // 2. Collect present value
-    // 3. Collect interest rate
-    // 4. Collect time period
-    // 5. If compound, collect compounding frequency
-    // 6. Calculate and display result
-    
-    if (validateFinancialInputs(PresentValue, InterestRate, Time, NumberofCompundings)) {
-        if (IsSimple) {
-            FutureValue = calculateSimpleInterest(PresentValue, InterestRate, Time);
-            Display.textContent = `Future Value (Simple): ${FutureValue.toFixed(2)}`;
-        } else {
-            FutureValue = calculateCompoundInterest(PresentValue, InterestRate, NumberofCompundings, Time);
-            Display.textContent = `Future Value (Compound): ${FutureValue.toFixed(2)}`;
-        }
-    } else {
-        DisplayError.textContent = "Error: Invalid input values for financial calculation";
+    else if(presentValue===null){
+        display.textContent = "Present Value: "
+        presentValue = display.value
+        display.textContent = `Present Value: ${presentValue}`
     }
-    */
+    else if(numberofCompundings===null){
+        display.textContent = `Number of Compoundings:`
+        numberofCompundings = display.value
+        display.textContent = `Number of Compoundings: ${numberofCompundings}`
+    }
+    else if(tim===null){
+        display.textContent = `Time:`
+        tim = display.value
+        display.textContent = `Time: ${tim}`
+    }
     
-    DisplayError.textContent = "Button under construction";
+    else{
+    if(isSimple == 1){
+        display.textContent = "Simple Interest"
+        FutureValue = presentValue*(1+interestRate*tim)
+        display.textContent = `Future Value Is: ${FutureValue}`
+    }
+    
+    
+    else{
+        display.textContent = "Compound Interest"
+        futureValue = presentValue*(1+(interestRate/numberofCompundings))**(numberofCompundings*tim)
+        display.textContent = `Future Value Is: ${FutureValue}`
+    }}
+   displayError.textContent = "Button under construction"
 }
 function i(){
-    DisplayError.textContent = "Button under construction"
+    displayError.textContent = "Button under construction"
 }
 function time(){
-    DisplayError.textContent = "Button under construction"
+    displayError.textContent = "Button under construction"
 }
-function PV(){
-    DisplayError.textContent = "Button under construction"
+function pV(){
+    displayError.textContent = "Button under construction"
 }
-function N(){
-    DisplayError.textContent = "Button under construction"
+function n(){
+    displayError.textContent = "Button under construction"
 }
-function P(){
-    DisplayError.textContent = "Button under construction"
+function p(){
+    displayError.textContent = "Button under construction"
+}*/
 }
-
 
 //Assigning Functions to operation buttons 
-function Operat(Op){
-    a = NumStringArraytoNum()
-    Operation = Op
-    Display.textContent += ` ${Op} `
+function operat(op){
+    a = numStringArraytoNum()
+    operation = op
+    display.textContent += ` ${op} `
 }
 
 //Taking inputs from array and joining them such that you have a single string number
 //Then type-converting the string to a number
 //Clearing the array to accept the second number
 
-function  NumStringArraytoNum(){   
+function  numStringArraytoNum(){   
     let str = ""
     str = calc.join("")
     number = Number(str)
@@ -254,23 +231,24 @@ function  NumStringArraytoNum(){
 
 function delet(){
     calc.pop()
-    Display.textContent = Display.textContent.slice(0, -1)
+    display.textContent = display.textContent.slice(0, -1)
 }
-function Okay(){
+function okay(){
 
 }
-function Clear(){
-FutureValue = null
-PresentValue = null
-InterestRate = null
-NumberofCompundings = null
-Time = null
-IsSimple = true
+
+function clear(){
+futureValue = null
+presentValue = null
+interestRate = null
+numberofCompundings = null
+tim = null
+isSimple = true
 
     a = null
     b = null
     c = null
-    Answer = null
+    answer = null
     calc = []
-    Display.textContent = ""
+    display.textContent = ""
 }
